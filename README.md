@@ -1,5 +1,7 @@
 # 主动阅读论文：先闭卷写，再让 AI 纠错
 
+<p align="center"><img src="assets/banner.png" width="100%" alt="读论文：先自己答，再让 AI 批改"></p>
+
 > 一篇 PDF、一份笔记、一个 AI。PDF 是证据源，笔记留下你自己的理解，AI 只负责解释、追问和校验，不替你读。
 
 **状态：v0.6 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。

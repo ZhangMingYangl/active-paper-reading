@@ -1,0 +1,156 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "WenKai"; src: url("wenkai.ttf"); }
+html,body { margin:0; padding:0; background:#F3ECDF; }
+svg { display:block; }
+.kai { font-family:"WenKai"; }
+.hei { font-family:"WenQuanYi Zen Hei"; }
+</style></head>
+<body>
+<svg id="banner" xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#5B4630" flood-opacity="0.18"/>
+    </filter>
+    <filter id="shadowStrong" x="-15%" y="-10%" width="130%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#8F2219" flood-opacity="0.25"/>
+    </filter>
+    <linearGradient id="spine" x1="0" x2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#5B4630" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C8372D"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="640" fill="#F3ECDF"/>
+
+  <!-- 标题 -->
+  <text x="640" y="68" text-anchor="middle" class="kai" font-size="50" fill="#2B2620">读论文：先自己答，再让 AI 批改</text>
+  <text x="640" y="108" text-anchor="middle" class="hei" font-size="20" fill="#6B6156">论文是专家的例题，练习得你自己做；AI 只依据原文批改，不替你作答</text>
+  <text x="640" y="136" text-anchor="middle" font-family="Liberation Serif" font-style="italic" font-size="17" fill="#8A7F72">Don't just read the paper. Fight it: write first, then let AI check you.</text>
+
+  <!-- ===== ① 练习本 ===== -->
+  <g transform="rotate(-1.5 230 380)" filter="url(#shadow)">
+    <rect x="40" y="172" width="380" height="410" rx="6" fill="#FFFDF7"/>
+  </g>
+  <g transform="rotate(-1.5 230 380)">
+    <g stroke="#D6E0EA" stroke-width="1.2">
+      <line x1="40" y1="242" x2="420" y2="242"/><line x1="40" y1="318" x2="420" y2="318"/>
+      <line x1="40" y1="394" x2="420" y2="394"/><line x1="40" y1="436" x2="420" y2="436"/>
+      <line x1="40" y1="512" x2="420" y2="512"/>
+    </g>
+    <circle cx="74" cy="208" r="18" fill="#C8372D"/>
+    <text x="74" y="216" text-anchor="middle" class="hei" font-size="22" fill="#fff">1</text>
+    <text x="102" y="217" class="kai" font-size="28" fill="#2B2620">合上论文，自己写</text>
+
+    <text x="62" y="270" class="hei" font-size="17" fill="#7A7065">这章回答什么问题？</text>
+    <text x="62" y="306" class="kai" font-size="24" fill="#24418F">少睡一晚，记单词会变差吗</text>
+    <path d="M370 290 l8 10 l18 -22" fill="none" stroke="#C8372D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="62" y="346" class="hei" font-size="17" fill="#7A7065">作者的答案和证据？</text>
+    <text x="62" y="382" class="kai" font-size="24" fill="#24418F">会变差，少记住约两成</text>
+    <text x="62" y="424" class="kai" font-size="23" fill="#C8372D">漏：只测了大学生</text>
+    <path d="M62 432 q10 -5 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#C8372D" stroke-width="1.8"/>
+
+    <text x="62" y="466" class="hei" font-size="17" fill="#7A7065">我还没懂什么？</text>
+    <text x="62" y="502" class="kai" font-size="24" fill="#24418F">为什么睡觉能帮记忆？</text>
+
+    <circle cx="74" cy="548" r="14" fill="#2E7D4F"/>
+    <text x="74" y="554" text-anchor="middle" class="hei" font-size="17" fill="#fff">3</text>
+    <text x="96" y="556" class="kai" font-size="22" fill="#2E7D4F">改正写回：结论只适用于大学生</text>
+  </g>
+
+  <!-- ===== ② AI 反馈卡 ===== -->
+  <g filter="url(#shadowStrong)">
+    <rect x="496" y="170" width="290" height="414" rx="14" fill="#FFFFFF"/>
+  </g>
+  <rect x="496" y="170" width="290" height="414" rx="14" fill="none" stroke="#C8372D" stroke-width="2.5"/>
+  <path d="M496 184 a14 14 0 0 1 14 -14 h262 a14 14 0 0 1 14 14 v46 h-290 z" fill="#C8372D"/>
+  <circle cx="530" cy="207" r="16" fill="#fff"/>
+  <text x="530" y="214" text-anchor="middle" class="hei" font-size="20" fill="#C8372D">2</text>
+  <text x="556" y="217" class="kai" font-size="28" fill="#FFFFFF">AI 对照原文批改</text>
+
+  <g>
+    <circle cx="528" cy="272" r="17" fill="#2E7D4F"/>
+    <path d="M520 272 l6 7 l11 -13" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="556" y="280" class="kai" font-size="24" fill="#2E7D4F">对</text>
+    <text x="592" y="280" class="kai" font-size="22" fill="#2B2620">问题抓得准</text>
+  </g>
+  <line x1="512" y1="306" x2="770" y2="306" stroke="#EFE6DA"/>
+  <g>
+    <circle cx="528" cy="340" r="17" fill="#C8372D"/>
+    <path d="M521 333 l14 14 M535 333 l-14 14" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+    <text x="556" y="348" class="kai" font-size="24" fill="#C8372D">漏</text>
+    <text x="592" y="340" class="kai" font-size="22" fill="#2B2620">只测了大学生</text>
+    <text x="592" y="364" class="hei" font-size="15" fill="#8A7F72">证据：表 2</text>
+  </g>
+  <line x1="512" y1="384" x2="770" y2="384" stroke="#EFE6DA"/>
+  <g>
+    <circle cx="528" cy="418" r="17" fill="#C77A00"/>
+    <text x="528" y="426" text-anchor="middle" class="hei" font-size="21" fill="#fff">?</text>
+    <text x="556" y="426" class="kai" font-size="24" fill="#C77A00">问</text>
+    <text x="592" y="418" class="kai" font-size="22" fill="#2B2620">40 人够吗？</text>
+    <text x="592" y="442" class="hei" font-size="15" fill="#8A7F72">证据：表 2</text>
+  </g>
+  <line x1="512" y1="462" x2="770" y2="462" stroke="#EFE6DA"/>
+  <g>
+    <circle cx="528" cy="496" r="17" fill="#2F5FA8"/>
+    <path d="M520 496 h15 M529 489 l7 7 l-7 7" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="556" y="504" class="kai" font-size="24" fill="#2F5FA8">提</text>
+    <text x="592" y="496" class="kai" font-size="22" fill="#2B2620">回第 3 节找找</text>
+    <text x="592" y="520" class="hei" font-size="15" fill="#8A7F72">只给提示，不给答案</text>
+  </g>
+  <text x="641" y="564" text-anchor="middle" class="hei" font-size="16" fill="#8A7F72">每条都标出原文位置</text>
+
+  <!-- 箭头 -->
+  <line x1="424" y1="262" x2="490" y2="262" stroke="#C8372D" stroke-width="2.6" marker-end="url(#arrow)"/>
+  <text x="458" y="250" text-anchor="middle" class="kai" font-size="16" fill="#C8372D">交给 AI</text>
+  <line x1="490" y1="520" x2="428" y2="520" stroke="#2E7D4F" stroke-width="2.6" marker-end="url(#arrow)"/>
+  <text x="459" y="546" text-anchor="middle" class="kai" font-size="16" fill="#2E7D4F">反馈</text>
+  <line x1="858" y1="380" x2="792" y2="380" stroke="#C8372D" stroke-width="2.6" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+  <text x="825" y="368" text-anchor="middle" class="kai" font-size="16" fill="#C8372D">查原文</text>
+
+  <!-- ===== 课本：论文原文 ===== -->
+  <g filter="url(#shadow)">
+    <path d="M862 186 Q956 172 1051 190 L1051 582 Q956 566 862 578 Z" fill="#FFFCF4"/>
+    <path d="M1051 190 Q1146 172 1240 186 L1240 578 Q1146 566 1051 582 Z" fill="#FFFCF4"/>
+  </g>
+  <rect x="1021" y="184" width="60" height="400" fill="url(#spine)"/>
+
+  <g transform="rotate(3 950 280)">
+    <rect x="878" y="214" width="150" height="120" fill="#FBE58A" filter="url(#shadow)"/>
+    <text x="892" y="246" class="hei" font-size="16" fill="#7A5C00">读前必备概念</text>
+    <text x="892" y="286" class="kai" font-size="28" fill="#3B2F12">对照组</text>
+    <text x="892" y="318" class="hei" font-size="13" fill="#7A5C00">AI 读前先讲清</text>
+  </g>
+  <g fill="#D9D1C3">
+    <rect x="882" y="384" width="148" height="9" rx="4.5"/><rect x="882" y="408" width="128" height="9" rx="4.5"/>
+    <rect x="882" y="432" width="148" height="9" rx="4.5"/><rect x="882" y="456" width="100" height="9" rx="4.5"/>
+  </g>
+
+  <text x="1072" y="228" class="hei" font-size="17" fill="#5E554B">表 2</text>
+  <rect x="1070" y="244" width="152" height="112" fill="none" stroke="#B9AE9C" stroke-width="1.2"/>
+  <g fill="#D9D1C3">
+    <rect x="1080" y="262" width="132" height="8" rx="4"/>
+    <rect x="1080" y="328" width="132" height="8" rx="4"/>
+  </g>
+  <rect x="1074" y="282" width="144" height="32" fill="#F7E07A" opacity="0.75"/>
+  <text x="1082" y="304" class="hei" font-size="16" fill="#3B3328">熬夜组</text>
+  <text x="1150" y="304" class="hei" font-size="16" fill="#3B3328">40 人</text>
+  <ellipse cx="1167" cy="298" rx="30" ry="20" fill="none" stroke="#C8372D" stroke-width="2.6" transform="rotate(-6 1167 298)"/>
+  <text x="1072" y="392" class="kai" font-size="19" fill="#C8372D">AI 标出的证据</text>
+  <g fill="#D9D1C3">
+    <rect x="1072" y="420" width="150" height="9" rx="4.5"/><rect x="1072" y="444" width="130" height="9" rx="4.5"/>
+    <rect x="1072" y="468" width="150" height="9" rx="4.5"/>
+  </g>
+
+  <!-- 底部标签 -->
+  <text x="230" y="622" text-anchor="middle" class="hei" font-size="18" fill="#5E554B">练习本：你的闭卷答案</text>
+  <text x="641" y="622" text-anchor="middle" class="hei" font-size="18" fill="#C8372D">AI：只批改，不代写</text>
+  <text x="1051" y="622" text-anchor="middle" class="hei" font-size="18" fill="#5E554B">课本：论文原文（证据）</text>
+</svg>
+</body></html>
