@@ -2,7 +2,7 @@
 
 > 一篇 PDF、一份笔记、一个 AI。PDF 是证据源，笔记留下你自己的理解，AI 只负责解释、追问和校验，不替你读。
 
-**状态：v0.5 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
+**状态：v0.6 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
 
 [English summary](#english-summary)
 
@@ -31,6 +31,8 @@
 
 也可以自己运行 `python setup.py --vault "<知识库路径>"`，详见 [让 AI 自动部署](docs/02-让AI自动部署.md)。
 
+**以后怎么更新？** 已经写好的笔记不受影响。要让以后新建的笔记用新版，对 AI 说“按 AGENTS.md 把论文阅读母版更新到最新版”，或运行 `python setup.py --vault "<知识库路径>" --update`；你改过的文件会先备份。在仓库页面点 **Watch → Custom → Releases**，有新版时会收到通知。
+
 ## 仓库结构
 
 ```text
@@ -47,7 +49,8 @@ examples/
 prompts/
   AI开场指令.md              发给 AI 的顺序约束指令
   概念预填指令.md            让 AI 按章节预填概念解释
-setup.py                     安装脚本（复制文件、开启 Obsidian 模板插件）
+setup.py                     安装和更新脚本（复制文件、开启 Obsidian 模板插件、--update 更新）
+VERSION                      当前版本号
 AGENTS.md                    给 AI 助手看的部署说明
 ```
 
@@ -76,4 +79,4 @@ AGENTS.md                    给 AI 助手看的部署说明
 
 ## English summary
 
-A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.5, tested by the author only. Content is in Chinese; feedback via issues is welcome.
+A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.6, tested by the author only. Content is in Chinese; feedback via issues is welcome.
