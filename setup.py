@@ -127,7 +127,7 @@ def main():
     log(prefix + enable_templates_plugin(obsidian, a.dry_run))
     log(prefix + set_template_folder(obsidian, vault, folder, a.dry_run, a.force))
     log("")
-    log("完成。请完全关闭并重新打开 Obsidian，让设置生效。")
+    log("完成。如果插入模板时找不到母版，请完全关闭并重新打开 Obsidian。")
     log(f"然后新建一篇笔记，按 Ctrl/Cmd+P，输入“模板”，选“插入模板 → {TEMPLATE_NAME[:-3]}”。")
     log(f"第一次用请先读：{folder}/docs/01-新手操作教程.md")
 
