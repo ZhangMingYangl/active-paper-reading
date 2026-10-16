@@ -2,7 +2,7 @@
 
 > 一篇 PDF、一份笔记、一个 AI。PDF 是证据源，笔记留下你自己的理解，AI 只负责解释、追问和校验，不替你读。
 
-**状态：v0.4.1 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
+**状态：v0.5 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
 
 [English summary](#english-summary)
 
@@ -19,7 +19,7 @@
 ## 两步开始
 
 1. **拿到母版。** 下载 [`templates/论文阅读-主动思考模板.md`](templates/论文阅读-主动思考模板.md)，每读一篇论文就复制一份。Obsidian、Typora、VS Code 都能打开。
-2. **交给 AI。** 填好阅读目的、“我的基础”和章节标题后，把你为这篇论文建的笔记（就是那个 .md 文件）和论文 PDF 一起上传给任意 AI（ChatGPT、Claude、Kimi 等），说一句：**“请按这篇笔记开头“给 AI 的说明”做。”** AI 会先给精读章节填好背景概念，然后等你合上论文写完，再依据原文核对。
+2. **交给 AI。** 写好阅读目的和“我的基础”这四行后，把你为这篇论文建的笔记（就是那个 .md 文件）和论文 PDF 一起上传给任意 AI（ChatGPT、Claude、Kimi 等），说一句：**请按这篇笔记开头“给 AI 的说明”做。** 论文信息、论文类型、章节表格和背景概念这些杂活 AI 都会填好，你只管读和想；它会等你合上论文写完，再依据原文核对。
 
 剩下的照着笔记从上往下填就行。第一次用可以看 [新手操作教程](docs/01-新手操作教程.md)，真实例子见 [示范](examples/示范-一章的反馈循环.md)。
 
@@ -76,4 +76,4 @@ AGENTS.md                    给 AI 助手看的部署说明
 
 ## English summary
 
-A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.4.1, tested by the author only. Content is in Chinese; feedback via issues is welcome.
+A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.5, tested by the author only. Content is in Chinese; feedback via issues is welcome.
