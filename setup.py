@@ -9,7 +9,7 @@
     python setup.py --vault "D:/Obsidian/我的知识库" --update      # 更新到新版
 
 做了什么：
-1. 把 templates/ docs/ prompts/ examples/ 复制到 <知识库>/<folder>/ 下（已有同名文件不覆盖，除非加 --force）；
+1. 把 templates/ docs/ prompts/ examples/ 和 assets/ 里的图片复制到 <知识库>/<folder>/ 下（已有同名文件不覆盖，除非加 --force）；
 2. 在 .obsidian/core-plugins.json 里开启“模板”插件；
 3. 如果知识库还没设置模板文件夹，就设为 <folder>/templates；
    如果已经设置了别的模板文件夹，不改设置，而是把母版额外复制一份到那个文件夹。
@@ -27,7 +27,8 @@ from datetime import datetime
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent
-PARTS = ["templates", "docs", "prompts", "examples"]
+PARTS = ["templates", "docs", "prompts", "examples", "assets"]
+IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"}
 TEMPLATE_NAME = "论文阅读-主动思考模板.md"
 MANIFEST = ".apr-install.json"
 VERSION = (REPO / "VERSION").read_text(encoding="utf-8").strip() if (REPO / "VERSION").exists() else "未知"
@@ -45,8 +46,11 @@ def source_files():
     """仓库里要装进知识库的文件：(来源路径, 相对安装目录的路径)。"""
     for part in PARTS:
         for f in sorted((REPO / part).rglob("*")):
-            if f.is_file():
-                yield f, f.relative_to(REPO).as_posix()
+            if not f.is_file():
+                continue
+            if part == "assets" and f.suffix.lower() not in IMAGE_SUFFIXES:
+                continue  # assets 里只装图片，图片的源文件留在仓库
+            yield f, f.relative_to(REPO).as_posix()
 
 
 def copy_tree(dest, force, dry, installed):
