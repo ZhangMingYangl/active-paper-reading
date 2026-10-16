@@ -2,7 +2,7 @@
 
 > 一篇 PDF、一份笔记、一个 AI。PDF 是证据源，笔记留下你自己的理解，AI 只负责解释、追问和校验，不替你读。
 
-**状态：v0.3 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
+**状态：v0.3.1 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
 
 [English summary](#english-summary)
 
@@ -51,7 +51,7 @@ AGENTS.md                    给 AI 助手看的部署说明
 ```
 
 **Obsidian 用户**：把整个文件夹放进库里，母版中的 `[[双链]]` 和折叠块（`> [!info]-`）都能直接用。
-**其他编辑器**：Typora、VS Code 或任何 Markdown 编辑器都能打开；折叠块会显示成普通引用块，不影响使用。
+**其他编辑器**：Typora、VS Code 或任何 Markdown 编辑器都能打开；折叠块会显示成普通引用块，“本章新概念”不会自动收起，要自己先写完闭卷三问再往下看。
 
 ## 依据与相关项目
 
@@ -69,10 +69,10 @@ AGENTS.md                    给 AI 助手看的部署说明
 
 ## 许可
 
-本项目文档采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh-hans) 许可：可以自由使用、修改和再分发，但需注明出处。全文见 [LICENSE](LICENSE)。
+本项目文档采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh-hans) 许可：可以自由使用、修改和再分发，但需注明出处。全文见 [LICENSE](LICENSE)。安装脚本 `setup.py` 是代码，单独采用 [MIT](LICENSE-MIT) 许可。
 
 ---
 
 ## English summary
 
-A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.3, tested by the author only. Content is in Chinese; feedback via issues is welcome.
+A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.3.1, tested by the author only. Content is in Chinese; feedback via issues is welcome.

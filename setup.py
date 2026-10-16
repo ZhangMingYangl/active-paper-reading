@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 ZhangMingYangl
 """把主动阅读母版安装到 Obsidian 知识库，并开启 Obsidian 的“模板”核心插件。
 
 用法：
@@ -127,6 +129,9 @@ def main():
     log(prefix + enable_templates_plugin(obsidian, a.dry_run))
     log(prefix + set_template_folder(obsidian, vault, folder, a.dry_run, a.force))
     log("")
+    if a.dry_run:
+        log("预演结束，没有修改任何文件。确认无误后，去掉 --dry-run 再运行一次即可正式安装。")
+        return
     log("完成。如果插入模板时找不到母版，请完全关闭并重新打开 Obsidian。")
     log(f"然后新建一篇笔记，按 Ctrl/Cmd+P，输入“模板”，选“插入模板 → {TEMPLATE_NAME[:-3]}”。")
     log(f"第一次用请先读：{folder}/docs/01-新手操作教程.md")
