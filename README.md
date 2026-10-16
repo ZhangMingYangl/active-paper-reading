@@ -2,7 +2,7 @@
 
 > 一篇 PDF、一份笔记、一个 AI。PDF 是证据源，笔记留下你自己的理解，AI 只负责解释、追问和校验，不替你读。
 
-**状态：v0.2 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
+**状态：v0.3 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
 
 [English summary](#english-summary)
 
@@ -21,8 +21,8 @@
 1. 复制 [`templates/论文阅读-主动思考模板.md`](templates/论文阅读-主动思考模板.md)，写下为什么读这篇。
 2. 快速浏览 10～20 分钟，判断论文类型，从 [类型模块](docs/论文阅读-类型模块.md) 里选 1～2 个。
 3. 合上论文写三句话：研究什么、做了什么、我最需要核对什么。
-4. 让 AI 按 [概念预填指令](prompts/概念预填指令.md) 填好每章的概念框，然后逐章读：每章读完合上论文回答三问（这章回答什么问题？作者的答案和证据？我没懂什么？），再回原文找错，最后让 AI 核对。
-5. 读完写最终判断和 3 行复盘。
+4. 选 2～3 个核心章节精读，让 AI 按 [概念预填指令](prompts/概念预填指令.md) 填好这几章的概念框。每章读完合上论文回答三问（这章回答什么问题？作者的答案和证据？我没懂什么？），再回原文找错，最后让 AI 核对。其他章节读完写一句话就行。
+5. 读完写最终判断和 3 行复盘，留 3 道自测题，一周后不看笔记再答一次。
 
 **第一次用？** 先看 [新手操作教程](docs/01-新手操作教程.md)，从下载、在 Obsidian 里设置模板，到每一章怎么填、怎么和 AI 配合，一步一步写清楚了。
 
@@ -75,4 +75,4 @@ AGENTS.md                    给 AI 助手看的部署说明
 
 ## English summary
 
-A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.2, tested by the author only. Content is in Chinese; feedback via issues is welcome.
+A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.3, tested by the author only. Content is in Chinese; feedback via issues is welcome.
