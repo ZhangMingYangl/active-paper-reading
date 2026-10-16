@@ -1,3 +1,5 @@
 .obsidian/
 .trash/
 .DS_Store
+.test-tmp/
+__pycache__/

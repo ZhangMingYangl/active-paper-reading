@@ -42,6 +42,17 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def inside_vault(vault, path, label):
+    """返回规范化路径；如果路径逃出知识库则立即停止。"""
+    root = vault.resolve()
+    resolved = path.resolve()
+    try:
+        resolved.relative_to(root)
+    except ValueError:
+        sys.exit(f"{label} 必须在知识库 {root} 里面，当前解析为 {resolved}。为避免写错位置已停止。")
+    return resolved
+
+
 def source_files():
     """仓库里要装进知识库的文件：(来源路径, 相对安装目录的路径)。"""
     for part in PARTS:
@@ -95,6 +106,22 @@ def load_json(path, default):
         sys.exit(f"无法解析 {path}，为避免损坏配置已停止。请手动开启模板插件。")
 
 
+def preflight_obsidian_config(obsidian, vault):
+    """在复制任何文件前检查配置格式和模板目录边界。"""
+    plugins_path = obsidian / "core-plugins.json"
+    plugins = load_json(plugins_path, [])
+    if not isinstance(plugins, (list, dict)):
+        sys.exit(f"{plugins_path} 的格式无法识别，已停止。请手动开启模板插件。")
+
+    templates_path = obsidian / "templates.json"
+    templates = load_json(templates_path, {})
+    if not isinstance(templates, dict):
+        sys.exit(f"{templates_path} 的格式无法识别，已停止。")
+    current = (templates.get("folder") or "").strip("/")
+    if current:
+        inside_vault(vault, vault / current, "Obsidian 模板文件夹")
+
+
 def save_json(path, data, dry):
     if dry:
         return
@@ -133,7 +160,7 @@ def set_template_folder(obsidian, vault, folder, dry, force):
         return f"模板文件夹已设为 {wanted}"
     if current == wanted:
         return f"模板文件夹原本就是 {wanted}"
-    target = vault / current / TEMPLATE_NAME
+    target = inside_vault(vault, vault / current / TEMPLATE_NAME, "Obsidian 模板文件")
     if target.exists() and not force:
         return f"你已有模板文件夹 {current}，里面已有同名母版，未覆盖"
     if not dry:
@@ -147,7 +174,7 @@ def set_template_folder(obsidian, vault, folder, dry, force):
 EXTRA = {}  # 母版额外复制到用户已有模板文件夹时，记下位置，更新时一起更新
 
 
-def update_one(src, target, recorded, backup_dir, label, dry):
+def update_one(src, target, recorded, backup_dir, backup_rel, label, dry):
     """更新一个文件，返回结果说明；用户改过的先备份。"""
     new_hash = digest(src)
     if not target.exists():
@@ -160,7 +187,7 @@ def update_one(src, target, recorded, backup_dir, label, dry):
         return "same", None
     backup = None
     if old_hash != recorded:  # 不是当初装进去的样子，说明用户改过，先备份
-        backup = backup_dir / f"{target.stem}（{label}前我的版本）{target.suffix}"
+        backup = backup_dir / backup_rel.parent / f"{target.stem}（{label}前我的版本）{target.suffix}"
         if not dry:
             backup.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(target, backup)
@@ -175,23 +202,29 @@ def update(vault, dest, folder, dry):
         sys.exit(f"没有找到 {dest}。请用 --folder 指定当初安装的文件夹。")
     manifest = read_manifest(dest)
     recorded = manifest.get("files", {})
+    extra = manifest.get("extra_template") or {}
+    extra_target = None
+    if extra.get("path"):
+        extra_target = inside_vault(vault, vault / extra["path"], "额外母版位置")
     log(f"{prefix}当前安装版本：{manifest.get('version', '未记录（旧版安装）')}，新版本：{VERSION}")
-    stamp = datetime.now().strftime("%Y-%m-%d-%H%M")
+    stamp = datetime.now().strftime("%Y-%m-%d-%H%M%S-%f")
     backup_dir = dest / "备份" / stamp
     counts = {"new": 0, "same": 0, "updated": 0}
     backups = []
     files = {}
     for f, rel in source_files():
-        result, backup = update_one(f, dest / rel, recorded.get(rel), backup_dir, "更新", dry)
+        target = inside_vault(vault, dest / rel, "更新目标")
+        result, backup = update_one(f, target, recorded.get(rel), backup_dir, Path(rel), "更新", dry)
         counts[result] += 1
         files[rel] = digest(f)
         if backup:
             backups.append((rel, backup))
-    extra = manifest.get("extra_template") or {}
-    if extra.get("path"):
-        target = vault / extra["path"]
-        if target.exists():
-            result, backup = update_one(REPO / "templates" / TEMPLATE_NAME, target, extra.get("hash"), backup_dir, "更新", dry)
+    if extra_target:
+        if extra_target.exists():
+            extra_rel = extra_target.relative_to(vault.resolve())
+            result, backup = update_one(REPO / "templates" / TEMPLATE_NAME, extra_target,
+                                        extra.get("hash"), backup_dir,
+                                        Path("额外模板") / extra_rel, "更新", dry)
             counts[result] += 1
             if backup:
                 backups.append((extra["path"], backup))
@@ -237,12 +270,16 @@ def main():
     if not obsidian.is_dir():
         sys.exit(f"{vault} 里没有 .obsidian 文件夹。请确认这是 Obsidian 知识库的根目录，并且至少用 Obsidian 打开过一次。")
     folder = a.folder.replace("\\", "/").strip("/")
-    dest = vault / folder
+    if not folder:
+        sys.exit("--folder 不能为空，也不能直接指向知识库根目录。")
+    dest = inside_vault(vault, vault / folder, "安装文件夹")
     prefix = "[预演] " if a.dry_run else ""
 
     if a.update:
         update(vault, dest, folder, a.dry_run)
         return
+
+    preflight_obsidian_config(obsidian, vault)
 
     if not a.force:
         existing = find_existing(vault, dest)
