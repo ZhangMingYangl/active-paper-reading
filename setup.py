@@ -101,6 +101,19 @@ def set_template_folder(obsidian, vault, folder, dry, force):
     return f"你已有模板文件夹 {current}，没有改设置，已把母版复制进去"
 
 
+def find_existing(vault, dest):
+    """在知识库里找已有的同名母版（不算本次的安装位置），找到就返回路径。"""
+    skip = {".obsidian", ".git", ".trash"}
+    for path in vault.rglob(TEMPLATE_NAME):
+        rel = path.relative_to(vault).parts
+        if rel[0] in skip:
+            continue
+        if path.resolve() == (dest / "templates" / TEMPLATE_NAME).resolve():
+            continue
+        return path
+    return None
+
+
 def main():
     ap = argparse.ArgumentParser(description="安装主动阅读母版到 Obsidian 知识库")
     ap.add_argument("--vault", required=True, help="Obsidian 知识库根目录（里面有 .obsidian 文件夹）")
@@ -116,6 +129,14 @@ def main():
     folder = a.folder.replace("\\", "/").strip("/")
     dest = vault / folder
     prefix = "[预演] " if a.dry_run else ""
+
+    if not a.force:
+        existing = find_existing(vault, dest)
+        if existing:
+            log(f"知识库里已经有母版：{existing.relative_to(vault)}")
+            log("看起来之前装过了，为避免出现两个同名文件，这次什么都没改。")
+            log("新建笔记时直接插入这个母版就行；确实要再装一份，请加 --force。")
+            return
 
     total_c = total_s = 0
     if dest.resolve() == REPO:  # 项目本身就放在知识库的这个位置，不用再复制

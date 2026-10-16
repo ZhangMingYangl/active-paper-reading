@@ -2,7 +2,7 @@
 
 > 一篇 PDF、一份笔记、一个 AI。PDF 是证据源，笔记留下你自己的理解，AI 只负责解释、追问和校验，不替你读。
 
-**状态：v0.3.1 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
+**状态：v0.4 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
 
 [English summary](#english-summary)
 
@@ -16,19 +16,20 @@
 预测 → 阅读 → 合上论文自己写 → 回原文找错 → AI 依据原文核对 → 只把核实过的修正写回笔记
 ```
 
-## 三分钟上手
+## 两步开始
 
-1. 复制 [`templates/论文阅读-主动思考模板.md`](templates/论文阅读-主动思考模板.md)，写下为什么读这篇。
-2. 快速浏览 10～20 分钟，判断论文类型，从 [类型模块](docs/论文阅读-类型模块.md) 里选 1～2 个。
-3. 合上论文写三句话：研究什么、做了什么、我最需要核对什么。
-4. 选 2～3 个核心章节精读，让 AI 按 [概念预填指令](prompts/概念预填指令.md) 填好这几章的概念框。每章读完合上论文回答三问（这章回答什么问题？作者的答案和证据？我没懂什么？），再回原文找错，最后让 AI 核对。其他章节读完写一句话就行。
-5. 读完写最终判断和 3 行复盘，留 3 道自测题，一周后不看笔记再答一次。
+1. **拿到母版。** 下载 [`templates/论文阅读-主动思考模板.md`](templates/论文阅读-主动思考模板.md)，每读一篇论文就复制一份。Obsidian、Typora、VS Code 都能打开。
+2. **交给 AI。** 填好阅读目的、“我的基础”和章节标题后，把笔记和论文 PDF 一起发给任意 AI（ChatGPT、Claude、Kimi 等），说一句：**“按笔记开头的说明做。”** AI 会先给精读章节填好背景概念，然后等你合上论文写完，再依据原文核对。
 
-**第一次用？** 先看 [新手操作教程](docs/01-新手操作教程.md)，从下载、在 Obsidian 里设置模板，到每一章怎么填、怎么和 AI 配合，一步一步写清楚了。
+剩下的照着笔记从上往下填就行。第一次用可以看 [新手操作教程](docs/01-新手操作教程.md)，真实例子见 [示范](examples/示范-一章的反馈循环.md)。
 
-**不想手动设置？** 把 [让 AI 自动部署](docs/02-让AI自动部署.md) 里的一段话交给 Claude Code、Codex、Cursor 等 AI 编程助手，它会帮你装进 Obsidian 并开启模板功能；也可以自己运行 `python setup.py --vault "<知识库路径>"`。
+**想在 Obsidian 里一键插入母版？** 把下面这句话发给 Claude Code、Codex、Cursor 等能操作电脑文件的 AI，它会问你知识库在哪、先预演给你看，你同意后才安装：
 
-读之前先把 [AI 开场指令](prompts/AI开场指令.md) 发给 AI，它就不会一上来直接给答案；精读前再用 [概念预填指令](prompts/概念预填指令.md) 让 AI 按章节填好背景概念，读的时候就不用一个个去问。完整说明见 [快速上手](docs/00-快速上手.md)，真实例子见 [示范](examples/示范-一章的反馈循环.md)。
+```text
+请按 https://github.com/ZhangMingYangl/active-paper-reading 里 AGENTS.md 的说明，把这个论文阅读母版装进我的 Obsidian 知识库。
+```
+
+也可以自己运行 `python setup.py --vault "<知识库路径>"`，详见 [让 AI 自动部署](docs/02-让AI自动部署.md)。
 
 ## 仓库结构
 
@@ -75,4 +76,4 @@ AGENTS.md                    给 AI 助手看的部署说明
 
 ## English summary
 
-A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.3.1, tested by the author only. Content is in Chinese; feedback via issues is welcome.
+A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.4, tested by the author only. Content is in Chinese; feedback via issues is welcome.
