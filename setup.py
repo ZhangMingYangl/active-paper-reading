@@ -111,7 +111,7 @@ def main():
     obsidian = vault / ".obsidian"
     if not obsidian.is_dir():
         sys.exit(f"{vault} 里没有 .obsidian 文件夹。请确认这是 Obsidian 知识库的根目录，并且至少用 Obsidian 打开过一次。")
-    folder = a.folder.strip("/\\")
+    folder = a.folder.replace("\\", "/").strip("/")
     dest = vault / folder
     prefix = "[预演] " if a.dry_run else ""
 
