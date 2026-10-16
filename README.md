@@ -25,6 +25,10 @@
 
 剩下的照着笔记从上往下填就行。第一次用可以看 [新手操作教程](docs/01-新手操作教程.md)，真实例子见 [示范](examples/示范-一章的反馈循环.md)。
 
+完整流程见下图：
+
+<p align="center"><img src="assets/flow.png" width="100%" alt="用这个项目读一篇论文：六步流程图"></p>
+
 **想在 Obsidian 里一键插入母版？** 把下面这句话发给 Claude Code、Codex、Cursor 等能操作电脑文件的 AI，它会问你知识库在哪、先预演给你看，你同意后才安装：
 
 ```text

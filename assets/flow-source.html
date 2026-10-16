@@ -1,0 +1,161 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "WenKai"; src: url("wenkai.ttf"); }
+html,body { margin:0; padding:0; background:#F3ECDF; }
+svg { display:block; }
+.kai { font-family:"WenKai"; }
+.hei { font-family:"WenQuanYi Zen Hei"; }
+</style></head>
+<body>
+<svg id="banner" xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#5B4630" flood-opacity="0.15"/>
+    </filter>
+    <marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#24418F"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8372D"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D4F"/></marker>
+  </defs>
+
+  <rect width="1280" height="720" fill="#F3ECDF"/>
+
+  <!-- 标题 -->
+  <text x="640" y="54" text-anchor="middle" class="kai" font-size="40" fill="#2B2620">用这个项目读一篇论文：六步</text>
+  <text x="640" y="90" text-anchor="middle" class="hei" font-size="19" fill="#6B6156">你负责写，AI 负责填杂活和核对</text>
+
+  <!-- 泳道 -->
+  <rect x="24" y="112" width="1232" height="292" rx="16" fill="#E7EDF5"/>
+  <rect x="24" y="418" width="1232" height="212" rx="16" fill="#F6E4E0"/>
+  <text x="62" y="250" text-anchor="middle" class="kai" font-size="30" fill="#24418F">你</text>
+  <text x="62" y="282" text-anchor="middle" class="hei" font-size="15" fill="#24418F">自己写</text>
+  <text x="62" y="518" text-anchor="middle" class="kai" font-size="30" fill="#C8372D">AI</text>
+  <text x="62" y="550" text-anchor="middle" class="hei" font-size="15" fill="#C8372D">填表·核对</text>
+
+  <!-- ===== 你的步骤卡 ===== -->
+  <!-- ① -->
+  <g filter="url(#sh)"><rect x="104" y="168" width="150" height="170" rx="12" fill="#fff"/></g>
+  <circle cx="179" cy="168" r="17" fill="#24418F"/><text x="179" y="175" text-anchor="middle" class="hei" font-size="19" fill="#fff">1</text>
+  <text x="179" y="214" text-anchor="middle" class="kai" font-size="24" fill="#2B2620">写 4 行</text>
+  <text x="179" y="246" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">为什么读</text>
+  <text x="179" y="270" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">我的基础</text>
+  <text x="179" y="320" text-anchor="middle" class="hei" font-size="15" fill="#8A7F72">2 分钟</text>
+
+  <!-- ② -->
+  <g filter="url(#sh)"><rect x="272" y="168" width="150" height="170" rx="12" fill="#fff"/></g>
+  <circle cx="347" cy="168" r="17" fill="#24418F"/><text x="347" y="175" text-anchor="middle" class="hei" font-size="19" fill="#fff">2</text>
+  <text x="347" y="214" text-anchor="middle" class="kai" font-size="24" fill="#2B2620">快速浏览</text>
+  <text x="347" y="246" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">摘要 → 图表</text>
+  <text x="347" y="270" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">→ 结论</text>
+  <text x="347" y="320" text-anchor="middle" class="hei" font-size="15" fill="#8A7F72">10～20 分钟</text>
+
+  <!-- ③ -->
+  <g filter="url(#sh)"><rect x="440" y="168" width="150" height="170" rx="12" fill="#fff"/></g>
+  <circle cx="515" cy="168" r="17" fill="#24418F"/><text x="515" y="175" text-anchor="middle" class="hei" font-size="19" fill="#fff">3</text>
+  <text x="515" y="214" text-anchor="middle" class="kai" font-size="24" fill="#2B2620">合上论文</text>
+  <text x="515" y="246" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">写三句话：</text>
+  <text x="515" y="270" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">研究什么、做了</text>
+  <text x="515" y="294" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">什么、要核对什么</text>
+  <text x="515" y="320" text-anchor="middle" class="hei" font-size="15" fill="#8A7F72">5 分钟</text>
+
+  <!-- ④ 核心循环 -->
+  <circle cx="760" cy="258" r="102" fill="#FFFFFF" filter="url(#sh)"/>
+  <circle cx="760" cy="258" r="102" fill="none" stroke="#24418F" stroke-width="3" stroke-dasharray="10 7"/>
+  <circle cx="760" cy="138" r="17" fill="#24418F"/><text x="760" y="145" text-anchor="middle" class="hei" font-size="19" fill="#fff">4</text>
+  <text x="760" y="240" text-anchor="middle" class="kai" font-size="26" fill="#2B2620">核心循环</text>
+  <text x="760" y="268" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">只精读 2～3 章</text>
+  <text x="760" y="292" text-anchor="middle" class="hei" font-size="14" fill="#8A7F72">每章 20～40 分钟</text>
+  <path d="M-7,-7 L7,0 L-7,7 z" fill="#24418F" transform="translate(850.1 210.1) rotate(62)"/>
+  <path d="M-7,-7 L7,0 L-7,7 z" fill="#24418F" transform="translate(850.1 305.9) rotate(118)"/>
+  <path d="M-7,-7 L7,0 L-7,7 z" fill="#24418F" transform="translate(760.0 360.0) rotate(180)"/>
+  <path d="M-7,-7 L7,0 L-7,7 z" fill="#24418F" transform="translate(667.6 301.1) rotate(245)"/>
+  <path d="M-7,-7 L7,0 L-7,7 z" fill="#24418F" transform="translate(697.2 177.6) rotate(322)"/>
+  <!-- 循环节点 -->
+  <g class="hei" font-size="15" text-anchor="middle">
+    <rect x="818" y="160" width="76" height="28" rx="14" fill="#24418F"/><text x="856" y="180" fill="#fff">看概念</text>
+    <rect x="836" y="244" width="68" height="28" rx="14" fill="#24418F"/><text x="870" y="264" fill="#fff">预测·读</text>
+    <rect x="796" y="330" width="88" height="30" rx="15" fill="#C8372D"/><text x="840" y="351" fill="#fff">闭卷三问</text>
+    <rect x="634" y="330" width="96" height="30" rx="15" fill="#24418F"/><text x="682" y="351" fill="#fff">回原文找错</text>
+    <rect x="618" y="244" width="70" height="28" rx="14" fill="#24418F"/><text x="653" y="264" fill="#fff">写质疑</text>
+  </g>
+  <text x="760" y="316" text-anchor="middle" class="hei" font-size="13" fill="#8A7F72">其余章读完写一句话</text>
+
+  <!-- ⑤ -->
+  <g filter="url(#sh)"><rect x="914" y="168" width="150" height="170" rx="12" fill="#fff"/></g>
+  <circle cx="989" cy="168" r="17" fill="#24418F"/><text x="989" y="175" text-anchor="middle" class="hei" font-size="19" fill="#fff">5</text>
+  <text x="989" y="214" text-anchor="middle" class="kai" font-size="24" fill="#2B2620">整合复盘</text>
+  <text x="989" y="246" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">最终判断</text>
+  <text x="989" y="270" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">出 3 道自测题</text>
+  <text x="989" y="320" text-anchor="middle" class="hei" font-size="15" fill="#8A7F72">20 分钟</text>
+
+  <!-- ⑥ -->
+  <g filter="url(#sh)"><rect x="1082" y="168" width="150" height="170" rx="12" fill="#fff"/></g>
+  <circle cx="1157" cy="168" r="17" fill="#2E7D4F"/><text x="1157" y="175" text-anchor="middle" class="hei" font-size="19" fill="#fff">6</text>
+  <text x="1157" y="214" text-anchor="middle" class="kai" font-size="24" fill="#2B2620">一周后</text>
+  <text x="1157" y="246" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">不看笔记</text>
+  <text x="1157" y="270" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">答那 3 道题</text>
+  <text x="1157" y="320" text-anchor="middle" class="hei" font-size="15" fill="#8A7F72">5 分钟</text>
+
+  <!-- 主线箭头 -->
+  <g stroke="#24418F" stroke-width="2.6">
+    <line x1="256" y1="252" x2="268" y2="252" marker-end="url(#ab)"/>
+    <line x1="424" y1="252" x2="436" y2="252" marker-end="url(#ab)"/>
+    <line x1="592" y1="252" x2="652" y2="252" marker-end="url(#ab)" opacity="0"/>
+    <line x1="592" y1="210" x2="652" y2="210" marker-end="url(#ab)"/>
+    <line x1="866" y1="210" x2="910" y2="210" marker-end="url(#ab)"/>
+    <line x1="1066" y1="252" x2="1078" y2="252" marker-end="url(#ab)"/>
+  </g>
+
+  <!-- ===== AI 卡 ===== -->
+  <!-- 填杂活 -->
+  <g filter="url(#sh)"><rect x="104" y="448" width="318" height="160" rx="12" fill="#fff"/></g>
+  <rect x="104" y="448" width="318" height="160" rx="12" fill="none" stroke="#C8372D" stroke-width="2"/>
+  <text x="263" y="484" text-anchor="middle" class="kai" font-size="23" fill="#C8372D">AI 填好笔记</text>
+  <text x="263" y="516" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">论文信息 · 类型 · 章节表</text>
+  <text x="263" y="542" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">建议精读哪 2～3 章</text>
+  <text x="263" y="568" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">预填“读前必备概念”</text>
+  <text x="263" y="594" text-anchor="middle" class="hei" font-size="14" fill="#8A7F72">5 分钟</text>
+  <!-- ① 交给 AI -->
+  <line x1="160" y1="340" x2="160" y2="444" stroke="#C8372D" stroke-width="2.6" marker-end="url(#ar)"/>
+  <text x="170" y="378" class="kai" font-size="16" fill="#C8372D">上传笔记 + PDF</text>
+  <text x="170" y="400" class="kai" font-size="16" fill="#C8372D">说一句话</text>
+  <line x1="347" y1="444" x2="347" y2="342" stroke="#2E7D4F" stroke-width="2.6" marker-end="url(#ag)"/>
+  <text x="357" y="400" class="kai" font-size="16" fill="#2E7D4F">填好的笔记</text>
+
+  <!-- 可选核对三句话 -->
+  <rect x="450" y="490" width="130" height="76" rx="12" fill="#fff" stroke="#C8372D" stroke-width="1.6" stroke-dasharray="6 5"/>
+  <text x="515" y="522" text-anchor="middle" class="hei" font-size="15" fill="#C8372D">可选</text>
+  <text x="515" y="548" text-anchor="middle" class="hei" font-size="15" fill="#5E554B">核对三句话</text>
+  <line x1="515" y1="342" x2="515" y2="486" stroke="#C8372D" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+
+  <!-- 核对 -->
+  <g filter="url(#sh)"><rect x="616" y="448" width="288" height="160" rx="12" fill="#fff"/></g>
+  <path d="M616 460 a12 12 0 0 1 12 -12 h264 a12 12 0 0 1 12 12 v34 h-288 z" fill="#C8372D"/>
+  <rect x="616" y="448" width="288" height="160" rx="12" fill="none" stroke="#C8372D" stroke-width="2"/>
+  <text x="760" y="480" text-anchor="middle" class="kai" font-size="22" fill="#fff">依据原文核对</text>
+  <g class="kai" font-size="22" text-anchor="middle">
+    <circle cx="656" cy="530" r="20" fill="#2E7D4F"/><text x="656" y="538" fill="#fff">对</text>
+    <circle cx="724" cy="530" r="20" fill="#C8372D"/><text x="724" y="538" fill="#fff">漏</text>
+    <circle cx="792" cy="530" r="20" fill="#C77A00"/><text x="792" y="538" fill="#fff">问</text>
+    <circle cx="860" cy="530" r="20" fill="#2F5FA8"/><text x="860" y="538" fill="#fff">提</text>
+  </g>
+  <text x="760" y="586" text-anchor="middle" class="hei" font-size="16" fill="#5E554B">标出原文位置，只给提示</text>
+  <!-- 循环 ↔ 核对 -->
+  <line x1="840" y1="362" x2="840" y2="444" stroke="#C8372D" stroke-width="2.6" marker-end="url(#ar)"/>
+  <text x="850" y="414" class="kai" font-size="16" fill="#C8372D">交给 AI</text>
+  <line x1="682" y1="444" x2="682" y2="364" stroke="#2E7D4F" stroke-width="2.6" marker-end="url(#ag)"/>
+  <text x="590" y="414" class="kai" font-size="16" fill="#2E7D4F">核实后写回</text>
+
+  <!-- 可选整体检查 -->
+  <rect x="924" y="490" width="130" height="76" rx="12" fill="#fff" stroke="#C8372D" stroke-width="1.6" stroke-dasharray="6 5"/>
+  <text x="989" y="522" text-anchor="middle" class="hei" font-size="15" fill="#C8372D">可选</text>
+  <text x="989" y="548" text-anchor="middle" class="hei" font-size="15" fill="#5E554B">整体检查·出题</text>
+  <line x1="989" y1="342" x2="989" y2="486" stroke="#C8372D" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+
+  <!-- 底部 -->
+  <rect x="24" y="648" width="560" height="50" rx="25" fill="#FFFDF7" stroke="#D9D1C3"/>
+  <text x="304" y="680" text-anchor="middle" class="hei" font-size="17" fill="#5E554B">第一次用？先拿到母版：下载，或让 AI 装进 Obsidian</text>
+  <rect x="600" y="648" width="656" height="50" rx="25" fill="#FBE9E6" stroke="#E7A9A3"/>
+  <text x="928" y="681" text-anchor="middle" class="kai" font-size="20" fill="#C8372D">注意：自己写完之前，别问 AI“这篇讲了什么”</text>
+</svg>
+</body></html>
