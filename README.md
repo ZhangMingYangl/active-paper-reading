@@ -2,9 +2,11 @@
 
 <p align="center"><img src="assets/banner.png" width="100%" alt="读论文：先自己答，再让 AI 批改"></p>
 
+[![Tests](https://github.com/ZhangMingYangl/active-paper-reading/actions/workflows/tests.yml/badge.svg)](https://github.com/ZhangMingYangl/active-paper-reading/actions/workflows/tests.yml)
+
 > 一篇 PDF、一份笔记、一个 AI。PDF 是证据源，笔记留下你自己的理解，AI 只负责解释、追问和校验，不替你读。
 
-**状态：v0.6 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
+**状态：v0.7 试用版。** 目前只在作者本人读论文时用过，效果还没有在更多人身上验证。欢迎试用后[提交阅读复盘](../../issues/new?template=reading-review.md)，母版会按大家的复盘继续修改。
 
 [English summary](#english-summary)
 
@@ -21,7 +23,7 @@
 ## 两步开始
 
 1. **拿到母版。** 下载 [`templates/论文阅读-主动思考模板.md`](templates/论文阅读-主动思考模板.md)，每读一篇论文就复制一份。Obsidian、Typora、VS Code 都能打开。
-2. **交给 AI。** 写好阅读目的和“我的基础”这四行后，把你为这篇论文建的笔记（就是那个 .md 文件）和论文 PDF 一起上传给任意 AI（ChatGPT、Claude、Kimi 等），说一句：**请按这篇笔记开头“给 AI 的说明”做。** 论文信息、论文类型、章节表格和背景概念这些杂活 AI 都会填好，你只管读和想；它会等你合上论文写完，再依据原文核对。
+2. **交给 AI。** 写好阅读目的和“我的基础”这四行后，把你为这篇论文建的笔记（就是那个 .md 文件）和论文 PDF 一起上传给任意 AI（ChatGPT、Claude、Kimi 等），说一句：**请按这篇笔记开头“给 AI 的说明”做。** 论文信息、论文类型、章节表格和读前背景概念这些杂活 AI 都会填好；本章的新概念和结论保持空白，等你合上论文写完后，AI 才依据原文核对并补充。
 
 剩下的照着笔记从上往下填就行。第一次用可以看 [新手操作教程](docs/01-新手操作教程.md)，真实例子见 [示范](examples/示范-一章的反馈循环.md)。
 
@@ -54,22 +56,24 @@ examples/
   示范-一章的反馈循环.md     “原答 → AI 核对 → 修正”的真实片段
 prompts/
   AI开场指令.md              发给 AI 的顺序约束指令
-  概念预填指令.md            让 AI 按章节预填概念解释
+  概念预填指令.md            让 AI 按章节预填读前背景概念
 setup.py                     安装和更新脚本（复制文件、开启 Obsidian 模板插件、--update 更新）
 VERSION                      当前版本号
 AGENTS.md                    给 AI 助手看的部署说明
 ```
 
 **Obsidian 用户**：把整个文件夹放进库里，母版中的 `[[双链]]` 和折叠块（`> [!info]-`）都能直接用。
-**其他编辑器**：Typora、VS Code 或任何 Markdown 编辑器都能打开；折叠块会显示成普通引用块，“本章新概念”不会自动收起，要自己先写完闭卷三问再往下看。
+**其他编辑器**：Typora、VS Code 或任何 Markdown 编辑器都能打开；折叠块会显示成普通引用块。AI 不会提前填写“本章新概念”，所以即使编辑器不支持折叠，也不会提前泄露本章答案。
 
-## 依据与相关项目
+## 设计依据、证据边界与相关项目
 
 这套方法的各个环节都有研究依据，组合方式是新的：
 
-- **预测、提问、澄清、总结**：Palincsar 和 Brown（1984）的[交互式教学](https://readingrockets.org/articles/researchbytopic/4956)。
-- **读之前先作答**：预测试效应，即使先答错，事后看到正确答案，记忆效果往往更好（[Pan & Rivers, 2023](https://pmc.ncbi.nlm.nih.gov/articles/PMC9839203)）。
-- **AI 只做校验者**：一项高中数学随机实验发现，无限制使用 GPT-4 的学生考试成绩比对照组低 17%，加了“不直接给答案”护栏后基本消除了负面影响（[Bastani 等, PNAS 2025](https://ideas.repec.org/a/nas/journl/v122y2025pe2422633122.html)）。
+- **预测、提问、澄清、总结**：Palincsar 和 Brown（1984）的[交互式教学原始研究](https://doi.org/10.1207/s1532690xci0102_1)。
+- **读之前先作答**：预测试效应，即使先答错，事后看到正确答案，记忆效果往往更好（[Pan & Carpenter, 2023 综述](https://doi.org/10.1007/s10648-023-09814-5)）。
+- **AI 只做校验者**：一项高中数学随机实验发现，无限制使用 GPT-4 的学生考试成绩比对照组低 17%，加了“不直接给答案”护栏后基本消除了负面影响（[Bastani 等, PNAS 2025](https://doi.org/10.1073/pnas.2422633122)）。
+
+这些研究支持“先尝试、再反馈”和“限制 AI 直接给答案”的设计方向，但**没有直接验证本仓库整套流程对科研论文阅读有效**。预测试对未直接测试内容和推理迁移的效果并不总是一致，上述 AI 实验也是高中数学场景；因此本项目仍以真实阅读复盘为准，不把相关研究写成产品效果证明。
 
 相近的项目和工具，各有侧重：[Feynman-Reader](https://github.com/HachikoJ/Feynman-Reader)（面向书籍，先写讲解再由 AI 评分）、[iTELL](https://ceur-ws.org/Vol-4010/itb25_s1s2.pdf)（智能教材，分块作答与总结）、ChatGPT Study Mode 和 Claude 学习模式（对话式引导）。本项目的侧重点是：**专门读科研论文、逐章先预测再闭卷作答、AI 在你写完之前不给本章解读、母版按论文类型分模块并靠复盘迭代**。
 
@@ -85,4 +89,4 @@ AGENTS.md                    给 AI 助手看的部署说明
 
 ## English summary
 
-A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.6, tested by the author only. Content is in Chinese; feedback via issues is welcome.
+A Markdown/Obsidian workflow for reading research papers actively: **write first with the paper closed, then check against the paper and let an AI correct you.** It includes a per-chapter note skeleton (predict → closed-book three questions → correct against the source → feedback log), a one-week delayed recall check, a usage guide, question modules for 8 paper types (method, benchmark, attack/defense, mechanism, systems, dataset, survey, theory), a real worked example, and a prompt that keeps the AI from explaining a chapter before you have written your own answers. Status: v0.7, tested by the author only. Content is in Chinese; feedback via issues is welcome.
